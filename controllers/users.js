@@ -19,6 +19,13 @@ exports.create = function(req, res, next) {
   });
 };
 
-exports.hello = function(req, res){
-  res.send({ email: 'siyang' });
-};
+/**
+ * Chect email exists
+ */
+exports.check = function(req, res) {
+  console.log(req.body.email);
+  var user = User.findOne({email: req.body.email})
+    .exec(function(err, user) {
+      return res.json({user: !!user});
+    });
+}

@@ -2,8 +2,8 @@ var async = require('async');
 
 module.exports = function(app, passport) {
   var users = require('../controllers/users');
-  app.get('/hello', users.hello);
-
+  app.post('/users/check', users.check);
+  // auth
   app.post('/signup', users.create);
 
   app.post('/signin', function(req, res, next) {
