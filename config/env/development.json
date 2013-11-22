@@ -1,0 +1,6 @@
+{
+    "db": "mongodb://localhost/iaieye-dev",
+    "app": {
+        "name": "iaieye server development env"
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "iaieye-server",
+  "description": "server of iaieye",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "latest",
+    "connect": "latest",
+    "connect-mongo": "latest",
+    "express-validator": "latest",
+    "async": "latest",
+    "mongoose": "latest",
+    "passport": "latest",
+    "passport-local": "latest",
+    "underscore": "latest"
+  }
+}
