@@ -21,7 +21,7 @@ module.exports = function(app, passport) {
         if(req.body.rememberme) {
           req.session.cookie.maxAge = 1000 * 60 * 60 * 24 * 30; 
         }
-        res.json(200, { id: user._id, username: user.name, role: user.role });
+        res.json(200, { id: user._id, username: user.username, role: user.role });
       });
     })(req, res, next);
   });
