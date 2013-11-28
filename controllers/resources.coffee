@@ -46,7 +46,7 @@ exports.fetchByUrl = (req, res, next) ->
             bufferHelper.concat chunk
           res.on 'end', ->
             buf = bufferHelper.toBuffer()
-            charset = /<meta[^>]+(gb2312|gbk)[^>]+>/im.exec(iconv.decode(buf, 'utf8'))
+            charset = /<meta[^>]+(http-equiv|charset)[^>]+(gb2312|gbk)[^>]+>/im.exec(iconv.decode(buf, 'utf8'))
             next null, iconv.decode(buf, charset && charset[1] || 'utf8')
         .on 'error', (error) ->
           next error
