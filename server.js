@@ -3,6 +3,8 @@ var express = require('express'),
   fs = require('fs'),
   passport = require('passport');
 
+require('coffee-script');
+
 // Load configurations
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
   config = require('./config/config'),

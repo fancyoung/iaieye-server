@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "express": "latest",
+    "coffee-script": "1.6.x",
     "connect": "latest",
     "connect-mongo": "latest",
     "express-validator": "latest",

@@ -2,7 +2,18 @@ var async = require('async');
 
 module.exports = function(app, passport) {
   var users = require('../controllers/users');
+  var resources = require('../controllers/resources');
+  
+  // User Routes
   app.post('/users/check', users.check);
+
+  // Resource Routes
+  app.get('/resources', resources.list);
+  app.post('/resources', resources.create);
+  app.get('/resources', resources.show);
+  app.put('/resources/:resourceId', resources.update);
+  app.del('/resources/:resourceId', resources.destory);
+  
   // auth
   app.post('/signup', users.create);
 
