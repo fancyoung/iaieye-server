@@ -13,6 +13,10 @@
     "mongoose": "latest",
     "passport": "latest",
     "passport-local": "latest",
+    "cheerio": "latest",
+    "request": "latest",
+    "iconv-lite": "latest",
+    "bufferhelper": "latest",
     "underscore": "latest"
   }
 }
