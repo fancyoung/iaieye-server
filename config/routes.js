@@ -13,6 +13,7 @@ module.exports = function(app, passport) {
   app.get('/resources', resources.show);
   app.put('/resources/:resourceId', resources.update);
   app.del('/resources/:resourceId', resources.destory);
+  app.post('/resources/fetchByUrl', resources.fetchByUrl);
   
   // auth
   app.post('/signup', users.create);
