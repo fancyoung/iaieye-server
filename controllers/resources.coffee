@@ -18,7 +18,11 @@ exports.list = (req, res) ->
         res.json resources
 
 exports.create = (req, res) ->
-  resource = new Resource req.body
+  url = req.body.url
+  title = req.body.title
+  resource = new Resource
+    url: url
+    title: title
   resource.save (err) ->
     if err
       res.json err

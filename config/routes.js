@@ -3,6 +3,7 @@ var async = require('async');
 module.exports = function(app, passport) {
   var users = require('../controllers/users');
   var resources = require('../controllers/resources');
+  var particles = require('../controllers/particles');
   
   // User Routes
   app.post('/users/check', users.check);
@@ -14,6 +15,10 @@ module.exports = function(app, passport) {
   app.put('/resources/:resourceId', resources.update);
   app.del('/resources/:resourceId', resources.destory);
   app.post('/resources/fetchByUrl', resources.fetchByUrl);
+
+  // Particle Routes
+  app.get('/resources/:resourceId/particles', particles.list);
+  app.post('/resources/:resourceId/particles', particles.create);
   
   // auth
   app.post('/signup', users.create);
