@@ -34,11 +34,14 @@ exports.fetchByUrl = (req, res, next) ->
   title = ''
   async.waterfall [
     (next) ->
-      # request url, (err, response, html) ->
-      #   if !err and response.statusCode == 200
-      #     next null, iconv.decode(html, 'gb2312')
-      #   else
-      #     console.log err || response.statusCode
+      Resource.findOne
+        url: url
+      .exec (err, resource) ->
+        if resource
+          res.json resource
+        else
+          next()
+    (next) ->
       try
         http.get url, (res) ->
           bufferHelper = new BufferHelper()
@@ -55,19 +58,6 @@ exports.fetchByUrl = (req, res, next) ->
     (html, next) ->
       $ = cheerio.load html
       title = $('title').text().trim()
-      # 仿佛必须用BufferHelper处理乱码，解析后无法解决
-      # charset = ''
-      # getCharset = (str) ->
-      #   c = str.match /gb2312|gbk/i
-      #   c && c[0].toLowerCase()
-      # if $('meta[charset]').length > 0
-      #   charset = getCharset $('meta[charset]').attr('charset')
-      # else if $('meta[http-equiv][content]').length > 0
-      #   charset = getCharset $('meta[http-equiv][content]').attr('content')
-      # if charset
-      #   console.log charset
-      # title = iconv.decode(title, charset)
-
       next null,
         url: url
         title: title
