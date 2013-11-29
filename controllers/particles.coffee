@@ -29,7 +29,10 @@ exports.create = (req, res) ->
             res.json
               err: err
           else
-            res.json particle
+            Particle.populate particle,
+              path: 'creator'
+              select: 'username'
+            , -> res.json particle
       else
         res.json
           err: 'resource not exist'
