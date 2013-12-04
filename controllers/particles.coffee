@@ -3,7 +3,8 @@ Particle = mongoose.model 'Particle'
 Resource = mongoose.model 'Resource'
 
 exports.list = (req, res) ->
-  Particle.find({})
+  resourceId = req.params.resourceId
+  Particle.find({resource: resourceId})
     .sort('-created')
     .populate('creator', 'username')
     .populate('resource', 'url title')
