@@ -30,6 +30,10 @@ exports.create = (req, res) ->
       res.json resource
 
 exports.show = (req, res) ->
+  Resource.findById(req.params.resourceId)
+    .exec (err, resource) ->
+      res.json resource    
+
 exports.update = (req, res) ->
 exports.destory = (req, res) ->
 

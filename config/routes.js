@@ -11,7 +11,7 @@ module.exports = function(app, passport) {
   // Resource Routes
   app.get('/resources', resources.list);
   app.post('/resources', resources.create);
-  app.get('/resources', resources.show);
+  app.get('/resources/:resourceId', resources.show);
   app.put('/resources/:resourceId', resources.update);
   app.del('/resources/:resourceId', resources.destory);
   app.post('/resources/fetchByUrl', resources.fetchByUrl);
